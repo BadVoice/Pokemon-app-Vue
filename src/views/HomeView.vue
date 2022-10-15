@@ -11,8 +11,12 @@
   <div class="mt-10 p-4 flex flex-wrap justify-center">
     <div class="ml-4 text-2x text-blue-500 "
     v-for="(pokemon, idx) in state.filteredPokemon" :key="idx">
-      {{pokemon.name}}
+      <RouterLink :to="`/about/${pokemon.name}`">
+        {{pokemon.name}}
+      </RouterLink>
+      
     </div>
+    
   </div>
 </template>
 
@@ -21,7 +25,7 @@ import { computed, reactive, toRefs } from "vue"
 
   const state = reactive({
     pokemons: [],
-    urlLookup: {
+    urlIdLookup: {
       
     },
     text: '',
@@ -40,7 +44,7 @@ import { computed, reactive, toRefs } from "vue"
   }
 
 
-  fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
+  fetch("https://pokeapi.co/api/v2/pokemon?limit=100&offset=0")
     .then((res) => res.json())
     .then((data) => {
       console.log(data)
