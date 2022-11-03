@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { reactive, toRefs } from "vue";
+import { reactive } from "vue";
 import { useRoute } from "vue-router";
 
   const route = useRoute()
@@ -33,7 +33,7 @@ import { useRoute } from "vue-router";
         state.pokemon = data;
       })
 
-    const stateAsRefs = toRefs(state)
+  
     
 </script>
 
